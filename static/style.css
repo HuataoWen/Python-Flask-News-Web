@@ -1,4 +1,11 @@
+body {
+    overflow-y:auto; 
+}
+
 .menu {
+    position: absolute;
+    margin-left: 15%;
+    margin-top: 50px;
     width: 150px;
     border: 1px solid gray;
     border-radius: 6px;
@@ -34,4 +41,14 @@
 .menu a.active {
     background-color: #333;
     color: white;
+}
+
+.container {
+    position: absolute;
+    margin-left: 30%;
+    margin-top: 50px;
+    width: 600px;
+    height: 200px;
+    border: 1px solid red;
+    border-radius: 6px;
 }
