@@ -18,17 +18,17 @@
             <br>
             <div>
               <label class="required-field">Keyword</label>
-              <input type="text" id="keyword" name="keyword">
+              <input type="text" id="keyword" name="keyword" required>
   
               <label class="required-field">From</label>
-              <input type="date" id="from" name="from">
+              <input type="date" id="from" name="from" required>
   
               <label class="required-field">To</label>
-              <input type="date" id="to" name="to">
+              <input type="date" id="to" name="to" required>
             </div>
             <br>
             <div>
-              <label class="required-field">Category</label>
+              <label>Category</label>
               <select id="categories">
                 <option value="All">All</option>
                 <option value="Business">Business</option>
@@ -40,8 +40,8 @@
                 <option value="Technology">Technology</option>
               </select>
   
-              <label class="required-field">Category</label>
-              <select id="categories">
+              <label>Source</label>
+              <select id="source">
                 <option value="All">All</option>
                 <option value="cnn">cnn</option>
                 <option value="fox-news">fox-news</option>
@@ -57,7 +57,7 @@
         </div>
 
         <div class="resultArea">
-          <div class="block">
+          <div class="block" onclick="alert('Hello! I am an alert box!!');">
             <p>asdfghjkl</p>
           </div>
 
@@ -73,6 +73,9 @@
             <p>asdfghjkl</p>
           </div>
         </div>
+        
+        <button id="gradient-button" class="gradient-button" type="button">Show More</button> 
+
         
         
       </div>
