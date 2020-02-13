@@ -1,5 +1,23 @@
 body {
-    overflow-y:auto; 
+    overflow-y:auto;
+}
+input {
+    border: none;
+    border-radius: 2px;
+}
+select {
+    border: 1px solid gray;
+    border-radius: 2px;
+}
+button {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 2px;
+    background-color: white;
+}
+button:hover {
+    background-color: #4CAF50;
+    color: white;
 }
 
 .menu {
@@ -52,6 +70,7 @@ body {
     border: 1px solid red;
     border-radius: 6px;
     text-align: center;
+    background-color: white;
 }
 
 .searchArea {
