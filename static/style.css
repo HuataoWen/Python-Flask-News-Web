@@ -51,4 +51,19 @@ body {
     height: 200px;
     border: 1px solid red;
     border-radius: 6px;
+    text-align: center;
+}
+
+.searArea {
+    position: absolute;
+    width: 600px;
+    border: 1px solid blue;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.required-field:after {
+    content: " *";
+    font-weight: bold;
+    color: red;
 }

@@ -4,7 +4,6 @@ function topNews() {
     document.getElementById("topNews").classList.add("active");
 
     // Get top news
-    document.getElementById("demo").innerHTML = "top news";
 }
 
 function searchNews() {
@@ -13,6 +12,5 @@ function searchNews() {
     document.getElementById("searchNews").classList.add("active");
 
     // Get user search
-    document.getElementById("demo").innerHTML = "search news";
 }
 
