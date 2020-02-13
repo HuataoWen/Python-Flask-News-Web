@@ -1,0 +1,37 @@
+.menu {
+    width: 150px;
+    border: 1px solid gray;
+    border-radius: 6px;
+}
+
+.menu a:first-child {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.menu a:last-child {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    text-align: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.menu a:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.menu a.active {
+    background-color: #333;
+    color: white;
+}
