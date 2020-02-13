@@ -48,15 +48,16 @@ body {
     margin-left: 30%;
     margin-top: 50px;
     width: 600px;
-    height: 200px;
+    height: 800px;
     border: 1px solid red;
     border-radius: 6px;
     text-align: center;
 }
 
-.searArea {
-    position: absolute;
+.searchArea {
+    position: relative;
     width: 600px;
+    height: auto;
     border: 1px solid blue;
     border-radius: 6px;
     text-align: center;
@@ -66,4 +67,31 @@ body {
     content: " *";
     font-weight: bold;
     color: red;
+}
+
+.resultArea {
+    position: relative;
+    width: 600px;
+    height: auto;
+    border: 1px solid green;
+    border-radius: 6px;
+    margin: 0 auto;
+}
+
+.block {
+    position: relative;
+    width: 550px;
+    height: auto;
+    border-radius:10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    margin: 10px auto;
+}
+
+.block:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+.expand {
+    
 }
