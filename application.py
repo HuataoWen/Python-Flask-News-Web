@@ -10,12 +10,12 @@ def index():
    newsapi = NewsApiClient(api_key='c2174dfb402940cab6d1829c14225861')
    cnn_top_headlines = newsapi.get_top_headlines(q='', sources='cnn', language='en')
    #fox_news_top_headlines = newsapi.get_top_headlines(q='', sources='fox-news', language='en')
-   #fox_news_top_headlines = newsapi.get_top_headlines(q='', sources='', language='en')
-   #print((fox_news_top_headlines))
+   top_headlines = newsapi.get_top_headlines(q='', sources='cnn', language='en')
+   #print((top_headlines))
    #sources = newsapi.get_sources()
    #print(sources)
    #return ""
-   return render_template('home.html')
+   return render_template('home.html', top_headlines = top_headlines)
 
 if __name__ == '__main__':
    app.run(debug = True)
