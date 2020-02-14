@@ -106,9 +106,11 @@ body {
     border-radius: 5px;
     background-color: darkgoldenrod;
     padding: 10px;
+    padding-top: 0;
 }
 .newsArea h2{
-    margin-bottom: 0;
+    margin: 0;
+    margin-top: 5px;
 }
 .newsBlocks {
     display: flex;
