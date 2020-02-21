@@ -36,59 +36,90 @@ function show(param_div_id, top_headlines) {
     }
 }
 
+function generateCollaseNewsBlockHTML(data, start, end) {
+    var content = ""
+    var i = 0;
+    for (i = start; i <= end; i++) {
+        content += '<div class="searchNewsResultBlock">';
+        content += '<div class= "searchNewsResultBlockImg">';
+        content += '<img src="' + data['articles'][i]['urlToImage'] + '" alt="Missing Img">';
+        content += '</div>';
 
-var resultContent = '';
+        content += '<div id="block'+i+'" class= "searchNewsResultBlockCollapseContent" onclick="expandBlock(this.id)">';
+        content += '<h4 >'+data['articles'][i]['title'] + '</h4>';
+        content += '<p>'+data['articles'][i]['description'] + '</p>';
+        content += '</div>';
+
+        content += '<div class= "searchNewsResultBlockClose">';
+        content += '<button style="display: None;"id="closeButton'+i+'" onclick="collapseBlock(this.id)">&#10006</button>';
+        content += '</div>';
+        content += '</div>';
+    }
+    
+    return content;
+}
+
+var searchNewsResultContent = '';
+var content = '';
 var content_1_5 = '';
 var content_6_15 = '';
 function searchNews() {
-    resultContent = '';
-    content_1_5 = '';
-    content_6_15 = '';
-    var i;
-    for (i = 1; i < 6; i++) {
-        content_1_5 += '<div id="block'+i+'" class="block" onclick="expandBlock(this.id)">';
-        content_1_5 += '<img src="' + result['articles'][i]['urlToImage'] + '" alt="Missing Img">';
-        content_1_5 += '<h4>'+result['articles'][i]['title'] + '</h4>';
-        content_1_5 += '<p>'+result['articles'][i]['description'] + '</p>';
-        content_1_5 += '</div>';
-    }
-    for (i = 6; i < 16; i++) {
-        content_6_15 += '<div id="block'+i+'" class="block" onclick="alert("ssss")">';
-        content_6_15 += '<p>asdfghjkl</p>';
-        content_6_15 += '</div>';
-    }
-    showLess();
+    searchNewsResultContent = '';
+    content_1_5 = generateCollaseNewsBlockHTML(result, 1, 5)
+    content_6_15 = generateCollaseNewsBlockHTML(result, 6, 9)
+    showLessNews();
+    document.getElementById("showMoreLessButton").style.display = "inline";
 }
+
 function expandBlock(clicked_id) {
-    var content = '';
-    content += '<img src="' + result['articles'][clicked_id.slice(-1,clicked_id.length)]['urlToImage'] + '" alt="Missing Img">';
-    content += '<h4>'+result['articles'][clicked_id.slice(-1,clicked_id.length)]['title'] + '</h4>';
-    content += '<p>'+result['articles'][clicked_id.slice(-1,clicked_id.length)]['author'] + '</p>';
-    content += '<p>'+result['articles'][clicked_id.slice(-1,clicked_id.length)]['source']['name'] + '</p>';
-    content += '<p>'+result['articles'][clicked_id.slice(-1,clicked_id.length)]['publishedAt'] + '</p>';
-    content += '<p>'+result['articles'][clicked_id.slice(-1,clicked_id.length)]['description'] + '</p>';
-    content += '<p>'+result['articles'][clicked_id.slice(-1,clicked_id.length)]['url'] + '</p>';
+    var index = clicked_id.slice(-1,clicked_id.length)
+
+    content = '';
+    content += '<h4>' + result['articles'][index]['title'] + '</h4>';
+    content += '<p><strong>Author: </strong>' + result['articles'][index]['author'] + '</p>';
+    content += '<p><strong>Source: </strong>' + result['articles'][index]['source']['name'] + '</p>';
+    var date = result['articles'][index]['publishedAt']
+    var month = date.substring(5, 7)
+    var day = date.substring(8, 10)
+    var year = date.substring(0, 4)
+    content += '<p><strong>Date: </strong>' + month+'/'+day+'/'+year + '</p>';
+    content += '<p>' + result['articles'][index]['description'] + '</p>';
+    content += '<p><a href="' + result['articles'][index]['url'] + '" target="_blank">See Original Post</a></p>';
+
+    document.getElementById(clicked_id).className = "searchNewsResultBlockExpandContent";
     document.getElementById(clicked_id).innerHTML = content;
+    document.getElementById('closeButton'+index).style.display = 'inline';
 }
+
 function collapseBlock(clicked_id) {
-    var content = '';
-    content += '<img src="' + result['articles'][clicked_id.slice(-1,clicked_id.length)]['urlToImage'] + '" alt="Missing Img">';
-    content += '<h4>'+result['articles'][clicked_id.slice(-1,clicked_id.length)]['title'] + '</h4>';
-    content += '<p>'+result['articles'][clicked_id.slice(-1,clicked_id.length)]['description'] + '</p>';
-    document.getElementById(clicked_id).innerHTML = content;
+    var index = clicked_id.slice(-1,clicked_id.length)
+
+    content = '';
+    content += '<h4 >'+result['articles'][index]['title'] + '</h4>';
+    content += '<p>'+result['articles'][index]['description'] + '</p>';
+
+    document.getElementById('block'+index).className = "searchNewsResultBlockCollapseContent";
+    document.getElementById('block'+index).innerHTML = content;
+    document.getElementById('closeButton'+index).style.display = 'None';
 }
 
-function clearNews() {
-    document.getElementById('resultArea').textContent = '';
+function clearFormNews() {
+    document.getElementById("searchForm").reset();
+    document.getElementById('searchNewsResultArea').textContent = '';
+    document.getElementById("showMoreLessButton").style.display = "none";
 }
 
-function showMore() {
-    resultContent = content_1_5;
-    resultContent += content_6_15;
-    document.getElementById('resultArea').innerHTML = resultContent;
+function showMoreNews() {
+    searchNewsResultContent = content_1_5;
+    searchNewsResultContent += content_6_15;
+    document.getElementById('searchNewsResultArea').innerHTML = searchNewsResultContent;
+    document.getElementById('showMoreLessButton').innerHTML = "Show Less";
+    document.getElementById('showMoreLessButton').onclick = showLessNews;
 }
 
-function showLess() {
-    resultContent = content_1_5;
-    document.getElementById('resultArea').innerHTML = resultContent;
+function showLessNews() {
+    searchNewsResultContent = content_1_5;
+    document.getElementById('searchNewsResultArea').innerHTML = searchNewsResultContent;
+    document.getElementById('showMoreLessButton').innerHTML = "Show More";
+    document.getElementById('showMoreLessButton').onclick = showMoreNews;
 }

@@ -1,6 +1,4 @@
-body {
-    overflow-y:scroll;
-}
+body { overflow-y:scroll;}
 input {
     border: none;
     border-radius: 2px;
@@ -189,7 +187,7 @@ button:hover {
     padding-right: 10px;
 }
 
-.resultArea {
+.searchNewsResultArea {
     position: relative;
     width: auto;
     height: auto;
@@ -199,9 +197,10 @@ button:hover {
     background-color: white;
 }
 
-.block {
+.searchNewsResultBlock {
     position: relative;
-    width: 550px;
+    display: table;
+    width: 610px;
     height: auto;
     border-radius: 3px;
     border: 1px solid #ccc;
@@ -210,25 +209,108 @@ button:hover {
     cursor: pointer;
 }
 
-.block:hover {
+.searchNewsResultBlock:hover {
     box-shadow: 5px 10px 15px rgba(33,33,33,.2); 
 }
 
-.block img {
+
+
+
+.searchNewsResultBlockImg {
+    display: table-cell;
+    width: 80px;
+    height: auto;
+    margin: 0;
+    background-color: None;
+}
+.searchNewsResultBlockImg img {
     object-fit: cover;
-    
+    padding: 10px;
     width: 60px;
     height: 60px;
-    margin-left: 0px;
+}
+.searchNewsResultBlockCollapseContent {
+    display: table-cell;
+    vertical-align: top;
+    text-align: left;
+    height: auto;
+    width: 500px;
+    padding: 0px;
+    padding-bottom: 10px;
+    background-color: None;
+    padding-top: 6px;
+    
+    margin: 0;
+}
+.searchNewsResultBlockCollapseContent h4 {
+    display: inline;
+    padding: 0px;
+    margin: 0;
+}
+.searchNewsResultBlockCollapseContent p {
+    width: 450px;
+    font-size: smaller;
+    
+    padding: 0;
+    margin: 0;
+
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
+}
+.searchNewsResultBlockExpandContent {
+    display: table-cell;
+    vertical-align: top;
+    text-align: left;
+    width: auto;
+    height: auto;
+    padding: 0px;
+    padding-bottom: 10px;
+    background-color: None;
+    padding-top: 6px;
+    
+    margin: 0;
 }
 
-.resultArea button {
-    padding: 4px 8px;
-    border: none;
-    border-radius: 2px;
-    background-color: #eee;
+.searchNewsResultBlockExpandContent h4 {
+    display: inline;
+    padding: 0px;
+    margin: 0;
 }
-.resultArea button:hover {
-    background-color: #4CAF50;
-    color: white;
+.searchNewsResultBlockExpandContent p {
+    width: 450px;
+    font-size: smaller;
+    
+    padding: 0;
+    margin: 0;
+
+    text-overflow: None;
+    overflow: visible; 
+    white-space: initial;
+}
+
+
+.searchNewsResultBlockClose {
+    display: table-cell;
+    vertical-align: top;
+    width: 20px;
+    height: auto;
+    padding: 0;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: 0;
+    background-color: None;
+}
+.searchNewsResultBlockClose button {
+    border: none;
+    background-color: inherit;
+    padding: 0;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.searchNewsResultBlockClose button:hover {
+    color: black;
 }
