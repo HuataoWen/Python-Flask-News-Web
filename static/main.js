@@ -17,10 +17,10 @@ var slideTopNewsIndex = 0;
 function showSlideTopNews() {
     if (slideTopNewsIndex == 5) {slideTopNewsIndex = 0;}
 
-    //document.getElementById("slideNewsUrl").setAttribute('href', result['articles'][slideTopNewsIndex]['url'])
-    //document.getElementById("slideNewsImg").src = result['articles'][slideTopNewsIndex]['urlToImage'];
-    //document.getElementById("slideNewsTitle").innerHTML = result['articles'][slideTopNewsIndex]['title'];
-    //document.getElementById("slideNewsDescription").innerHTML = result['articles'][slideTopNewsIndex]['description'];
+    document.getElementById("slideNewsUrl").setAttribute('href', result['articles'][slideTopNewsIndex]['url'])
+    document.getElementById("slideNewsImg").src = result['articles'][slideTopNewsIndex]['urlToImage'];
+    document.getElementById("slideNewsTitle").innerHTML = result['articles'][slideTopNewsIndex]['title'];
+    document.getElementById("slideNewsDescription").innerHTML = result['articles'][slideTopNewsIndex]['description'];
     
     setTimeout(showSlideTopNews, 2000); // Change image every 2 seconds
     slideTopNewsIndex++;
@@ -32,7 +32,7 @@ function switchFrame(param_div_id, top_headlines) {
 
     if (param_div_id == "newsFrame") {
         // TODO: Pull top news
-        // TODO: Show top news
+        // Show slide news
         showSlideTopNews();
         // TODO: Show cloud words
 
