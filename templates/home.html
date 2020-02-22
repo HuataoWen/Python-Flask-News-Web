@@ -6,25 +6,34 @@
       <script type = "text/javascript" src = "{{ url_for('static', filename = 'main.js') }}"></script>
     </head>
     
-    <body onload="show('searchFrame')">
+    <body onload="switchFrame('newsFrame')">
         <div class="wrapper">
             <div class="menu">
-                <a id="topNews" href="#" class="active" onclick = "show('newsFrame')">Google News</a>
-                <a id="searchNews" href="#" onclick = "show('searchFrame')">Search</a>
+                <a id="topNewsPage" href="#" class="active" onclick = "switchFrame('newsFrame')">Google News</a>
+                <a id="searchNewsPage" href="#" onclick = "switchFrame('searchFrame')">Search</a>
             </div>
 
             <div id="main_place" class="container"> 
             </div>
 
-            <div id="newsFrame" style="display:none">
-                <div class="headArea">
-                    <div class="topNews">
+            <div id="newsFrame" style="display: none;">
+                <div class="headNewsArea">
+                    <div class="slideNewsBlock">
+                        <!-- To do >-->
+                        <img id="slideNewsImg" src="https://cdn.cnn.com/cnnnext/dam/assets/200213163906-01-barr-lead-image-super-tease.jpg">
+                        <div class="slideNewsBlockText">
+                            <h3 id="slideNewsTitle" >11</h3>
+                            <p id="slideNewsDescription" >11</p>
+                        </div>
+                    </div>
 
-                    </div>
+                    <!--
                     <div class="wordsCloud">
-                        
+                        <p>d</p>
                     </div>
+                    --> 
                 </div>
+
                 <div class="newsArea">
                     <h2>CNN</h2>
                     <hr>
@@ -43,6 +52,7 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="newsArea">
                     <h2>Fox News</h2>
                     <hr>
