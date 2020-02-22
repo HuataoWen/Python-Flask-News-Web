@@ -3,6 +3,8 @@
     <head>
       <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
       <link rel="stylesheet" type="text/css" href="/static/style.css"/>
+      <script src = "{{ url_for('static', filename = 'd3.v4.js') }}"></script>
+      <script src = "{{ url_for('static', filename = 'd3.layout.cloud.js') }}"></script>
       <script type = "text/javascript" src = "{{ url_for('static', filename = 'main.js') }}"></script>
     </head>
     
@@ -19,16 +21,16 @@
             <div id="newsFrame" style="display:none">
                 <div class="headNewsArea">
                     <div class="slideNewsBlock">
-                        <a id="slideNewsUrl" href="">
+                        <a id="slideNewsUrl" href="" target="-blank">
                             <img id="slideNewsImg" src="">
                             <div class="slideNewsBlockText">
-                                <h3 id="slideNewsTitle" ></h3>
+                                <h4 id="slideNewsTitle" ></h4>
                                 <p id="slideNewsDescription" ></p>
                             </div>
                         </a>
                     </div>
 
-                    <div class="wordsCloud">
+                    <div id="wordsCloud" class="wordsCloud">
                     </div>
                 </div>
 
