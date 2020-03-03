@@ -13,7 +13,7 @@ function searchNewsPage() {
     // Get user search
 }
 */
-
+var wordFreq;
 function showWordCloud() {
     // List of words
     var myWords = []//{word: "Running", size: "20"},
@@ -24,7 +24,7 @@ function showWordCloud() {
     //{word: "Snowboarding", size: "20"} ]
     
     for (var i = 0; i < 30; i++) {
-        myWords.push({word: "Snowboarding", size: i});
+        myWords.push({word: wordFreq[i][0], size: i});
     }
 
     // set the dimensions and margins of the graph
@@ -44,7 +44,7 @@ function showWordCloud() {
     var layout = d3.layout.cloud()
     .size([width, height])
     .words(myWords.map(function(d) { return {text: d.word, size: d.size}; }))
-    .padding(2) //space between words
+    .padding(3) //space between words
     .rotate(function() { return ~~(Math.random() * 2) * 90; })
     .fontSize(function(d) { return d.size; })      // font size of words
     .on("end", draw);
@@ -85,11 +85,21 @@ function showSlideTopNews() {
     slideTopNewsIndex++;
 }
 
+var cnn_top_headlines;
+var fox_news_top_headlines;
+
+function updateResult(data) {
+    result = data['top_headlines'];
+    cnn_top_headlines = data['cnn_top_headlines'];
+    fox_news_top_headlines = data['fox_news_top_headlines'];
+    wordFreq = data['wordFreq'];
+}
 function switchFrame(param_div_id) {
     document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
     
     if (param_div_id == "newsFrame") {
         // TODO: Pull top news
+        //alert(top_headlines);
 
         // Show slide news
         showSlideTopNews();
@@ -100,19 +110,19 @@ function switchFrame(param_div_id) {
         // Show news cards
         var i;
         for (i = 1; i < 5; i++) {
-            var content = '<img src="' + result['articles'][i]['urlToImage'] + '" alt="Missing Img">';
-            content += '<h1>' + result['articles'][i]['title'] + '</h1>';
-            content += '<p>' + result['articles'][i]['description'] + '</p>';
+            var content = '<img src="' + cnn_top_headlines['articles'][i]['urlToImage'] + '" alt="Missing Img">';
+            content += '<h1>' + cnn_top_headlines['articles'][i]['title'] + '</h1>';
+            content += '<p>' + cnn_top_headlines['articles'][i]['description'] + '</p>';
             document.getElementById('cnnNews'+i).innerHTML = content;
-            document.getElementById('cnnNews'+i+'_url').href=result['articles'][i]['url'];
+            document.getElementById('cnnNews'+i+'_url').href=cnn_top_headlines['articles'][i]['url'];
         }
 
         for (i = 1; i < 5; i++) {
-            var content = '<img src="' + result['articles'][i]['urlToImage'] + '" alt="Missing Img">';
-            content += '<h1>' + result['articles'][i]['title'] + '</h1>';
-            content += '<p>' + result['articles'][i]['description'] + '</p>';
+            var content = '<img src="' + fox_news_top_headlines['articles'][i]['urlToImage'] + '" alt="Missing Img">';
+            content += '<h1>' + fox_news_top_headlines['articles'][i]['title'] + '</h1>';
+            content += '<p>' + fox_news_top_headlines['articles'][i]['description'] + '</p>';
             document.getElementById('foxNewsNews'+i).innerHTML = content;
-            document.getElementById('foxNewsNews'+i+'_url').href=result['articles'][i]['url'];
+            document.getElementById('foxNewsNews'+i+'_url').href=fox_news_top_headlines['articles'][i]['url'];
         }
     }
     else {
@@ -149,7 +159,13 @@ var content = '';
 var content_1_5 = '';
 var content_6_15 = '';
 function searchNews() {
-    // TODO: Get user input and pull news 
+    // TODO: Get user input and pull news
+    var keyword, fromDate, toDate, category, source;
+    keyword = document.getElementById("keyword").value;
+    fromDate = document.getElementById("from").value;
+    toDate = document.getElementById("to").value;
+    category = document.getElementById("categories").value;
+    source = document.getElementById("source").value;
 
     // Parse the searched form
     searchNewsResultContent = '';

@@ -6,6 +6,12 @@
       <script src = "{{ url_for('static', filename = 'd3.v4.js') }}"></script>
       <script src = "{{ url_for('static', filename = 'd3.layout.cloud.js') }}"></script>
       <script type = "text/javascript" src = "{{ url_for('static', filename = 'main.js') }}"></script>
+      <script>
+          var someJavaScriptVar;
+          someJavaScriptVar = {{ headlines|tojson }};
+          //alert(someJavaScriptVar);
+          updateResult(someJavaScriptVar);
+      </script>
     </head>
     
     <body onload="switchFrame('newsFrame')">
@@ -76,6 +82,7 @@
             <div id="searchFrame" style="display:none">
                 <div class="searchArea">
                     <br>
+                    <!--<form id="searchForm" action="/search">-->
                     <form id="searchForm" action="javascript:searchNews()">
                         <div>
                             <label class="required-field">Keyword</label>
