@@ -1,6 +1,6 @@
 from flask import Flask, redirect, url_for, render_template, request, abort, jsonify
 from newsapi import NewsApiClient
-import collections
+from newsapi.newsapi_exception import NewsAPIException
 
 app = Flask(__name__)
 @app.route('/')
@@ -53,32 +53,30 @@ def searchNews():
    sources = '' if request.form['source'] == "all" else request.form['source']
    from_param = request.form['fromDate']
    to = request.form['toDate']
-   print(from_param)
    newsapi = NewsApiClient(api_key='c2174dfb402940cab6d1829c14225861')
-   all_articles = newsapi.get_everything(\
-      q=q,\
-      sources=sources,\
-      from_param=from_param,\
-      to=to,\
-      language='en',\
-      sort_by='publishedAt',\
-      page=5)
-   print(all_articles)
-   return jsonify(all_articles)
-   """
    try:
       all_articles = newsapi.get_everything(\
-         q='bitcoin',\
-         sources='cnn',\
-         from_param='2019-12-01',\
-         to='2019-12-12',\
+         q=q,\
+         sources=sources,\
+         from_param=from_param,\
+         to=to,\
          language='en',\
          sort_by='publishedAt',\
-         page=2)
-      print(all_articles)
-   except:
-      pass
-   """
+         page=5)
+      print(type(all_articles))
+      #print(all_articles)
+      return jsonify(all_articles)
+   except Exception as e:
+      #print(e)
+      errorStr = str(e)
+      errorStr = errorStr.strip("{'").strip("'}").split("', '")
+      error = {}
+      for item in errorStr:
+         t = item.split("': '")
+         error[t[0]] = t[1]
+      #print(error)
+      return jsonify(error)
+
 
 @app.route('/requestSource', methods=['GET', 'POST'])
 def requestSource():

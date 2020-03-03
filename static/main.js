@@ -69,7 +69,7 @@ function showWordCloud() {
     layout.start();
 }
 
-var result = {'status': 'ok', 'totalResults': 10, 'articles': [{'source': {'id': 'cnn', 'name': 'CNN'}, 'author': 'Analysis by Zachary B. Wolf, CNN', 'title': 'An emboldened Trump is greeted by a few rebukes -- but so many others stay silent', 'description': "Attorney General William Barr snapped back after days of watching critics argue that his complacency and silence amid rising concern about President Donald Trump's influence over the Department of Justice were undermining the entire American system.", 'url': 'http://us.cnn.com/2020/02/14/politics/what-matters-february-13/index.html', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/200213163906-01-barr-lead-image-super-tease.jpg', 'publishedAt': '2020-02-14T05:04:09Z', 'content': ''}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': '', 'title': 'Congressman: This is about Trump showing his power  - CNN Video', 'description': "Rep. Eric Swalwell (D-CA) tells CNN's Anderson Cooper that President Trump is sending a message about his control over the Department of Justice.", 'url': 'http://us.cnn.com/videos/politics/2020/02/14/eric-swalwell-barr-stone-trump-tweets-ac-vpx.cnn', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/200213212126-eric-swalwell-ac-02132020-super-tease.jpg', 'publishedAt': '2020-02-14T03:07:59.9012787Z', 'content': "Chat with us in Facebook Messenger. Find out what's happening in the world as it unfolds."}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': 'Opinion by Frida Ghitis', 'title': 'Trump is learning from the dictators', 'description': 'When the President tweeted his objection to the sentencing recommendation for his Roger Stone, and Attorney General William Barr then quickly reversed the recommendation, they were following along a well-trod path across history, writes Frida Ghitis.', 'url': 'http://us.cnn.com/2020/02/13/opinions/trump-takes-americans-for-fools-ghitis/index.html', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/200213154223-trump-barr-for-ghitis-oped-super-tease.jpg', 'publishedAt': '2020-02-14T02:21:39Z', 'content': 'Frida Ghitis, a former CNN producer and correspondent, is a world affairs columnist. She is a frequent opinion contributor to CNN, a contributing columnist to the Washington Post and a columnist for World Politics Review. Follow her on Twitter @fridaghitis. T… [+6971 chars]'}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': 'Jacqueline Howard, CNN', 'title': "CDC director: Novel coronavirus 'is probably with us beyond this season, beyond this year'", 'description': 'As an outbreak of a novel coronavirus has swept through Hubei province, China, the US Centers for Disease Control and Prevention has been preparing for its worst case scenario -- a widespread outbreak of illnesses in the United States.', 'url': 'http://us.cnn.com/2020/02/13/health/coronavirus-cdc-robert-redfield-gupta-intv/index.html', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/200213175729-01-coronavirus-0213-super-tease.jpg', 'publishedAt': '2020-02-14T01:31:05Z', 'content': '(CNN)As an outbreak of a novel coronavirus has swept through Hubei province, China, the US Centers for Disease Control and Prevention has been preparing for its worst case scenario -- a widespread outbreak of illnessesin the United States.\r\n"Right now we\'re i… [+6416 chars]'}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': 'Rishi Iyengar, CNN Business', 'title': 'Jeff Bezos just dropped $165 million on a new Beverly Hills mansion', 'description': "The world's richest man is on a real estate binge.", 'url': 'http://www.cnn.com/2020/02/13/tech/jeff-bezos-mansion-beverly-hills/index.html', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/200213161811-jeff-bezos-0919-file-super-tease.jpg', 'publishedAt': '2020-02-13T23:57:06Z', 'content': ''}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': 'Marshall Cohen, CNN', 'title': 'Trump contradicts past denials, admits sending Giuliani to Ukraine', 'description': 'Emboldened after his impeachment acquittal, President Donald Trump now openly admits to sending his attorney Rudy Giuliani to Ukraine to find damaging information about his political opponents, even though he strongly denied it during the impeachment inquiry.', 'url': 'http://us.cnn.com/2020/02/13/politics/trump-rudy-giuliani-ukraine-interview/index.html', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/191012134844-01-giuliani-super-tease.jpg', 'publishedAt': '2020-02-13T23:49:15Z', 'content': 'Washington (CNN)Emboldened after his impeachment acquittal, President Donald Trump now openly admits to sending his attorney Rudy Giuliani to Ukraine to find damaging information about his political opponents, even though he strongly denied it during the impe… [+2775 chars]'}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': 'Peter Bergen, CNN National Security Analyst', 'title': 'Trump faces revolt of the generals', 'description': 'We have come to an extraordinary moment in the United States when some of the most senior retired military leaders in the country are publicly taking President Trump to task, writes Peter Bergen.', 'url': 'http://us.cnn.com/2020/02/13/opinions/john-kelly-revolt-generals-bergen/index.html', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/180718104553-01-john-kelly-07-18-2018-super-tease.jpg', 'publishedAt': '2020-02-13T23:45:40Z', 'content': 'Peter Bergen is CNN\'s national security analyst, a vice president at New America and a professor of practice at Arizona State University. His new book is "Trump and His Generals: The Cost of Chaos." The opinions expressed in this commentary are his own. View … [+4236 chars]'}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': 'Analysis by Gloria Borger, CNN Chief Political Analyst', 'title': 'Trump has paralyzed both sides now', 'description': 'As President Donald Trump continues to live out his revenge fantasies against his critics, the reactions are predictable: Democratic outrage and Republican evasion.', 'url': 'http://us.cnn.com/2020/02/13/politics/donald-trump-revenge-fantasies-column/index.html', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/200213163505-trump-0207-super-tease.jpg', 'publishedAt': '2020-02-13T22:01:54Z', 'content': ''}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': '', 'title': "GOP Sen Lisa Murkowski says it appears Trump hasn't learned anything from impeachment - CNN Video", 'description': 'Republican Sen. Lisa Murkowski says there have not been indicators that President Trump has learned any lessons from being impeached.', 'url': 'http://us.cnn.com/videos/politics/2020/02/13/gop-senator-trump-hasnt-learned-from-impeachment-nr-vpx.cnn', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/200131132404-03-murkowski-0129-super-tease.jpg', 'publishedAt': '2020-02-13T21:38:45.789667Z', 'content': "Chat with us in Facebook Messenger. Find out what's happening in the world as it unfolds."}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': 'Evan Perez, Manu Raju and Jeremy Herb, CNN', 'title': "Federal prosecutors in Pittsburgh vetting Giuliani's Ukraine allegations", 'description': "The Ukraine allegations that President Donald Trump's personal attorney Rudy Giuliani is providing to the Justice Department are being vetted by investigators in the US Attorney's Office in Pittsburgh, two US law enforcement officials said.", 'url': 'http://us.cnn.com/2020/02/11/politics/pittsburgh-giuliani-ukraine-allegations/index.html', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/191206103741-01-rudy-giuliani-file-2018-super-tease.jpg', 'publishedAt': '2020-02-11T20:25:25Z', 'content': "(CNN)The Ukraine allegations that President Donald Trump's personal attorney Rudy Giuliani is providing to the Justice Department are being vetted by investigators in the US Attorney's Office in Pittsburgh, two US law enforcement officials said.\r\nThe official… [+4449 chars]"}]};
+//var result = {'status': 'ok', 'totalResults': 10, 'articles': [{'source': {'id': 'cnn', 'name': 'CNN'}, 'author': 'Analysis by Zachary B. Wolf, CNN', 'title': 'An emboldened Trump is greeted by a few rebukes -- but so many others stay silent', 'description': "Attorney General William Barr snapped back after days of watching critics argue that his complacency and silence amid rising concern about President Donald Trump's influence over the Department of Justice were undermining the entire American system.", 'url': 'http://us.cnn.com/2020/02/14/politics/what-matters-february-13/index.html', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/200213163906-01-barr-lead-image-super-tease.jpg', 'publishedAt': '2020-02-14T05:04:09Z', 'content': ''}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': '', 'title': 'Congressman: This is about Trump showing his power  - CNN Video', 'description': "Rep. Eric Swalwell (D-CA) tells CNN's Anderson Cooper that President Trump is sending a message about his control over the Department of Justice.", 'url': 'http://us.cnn.com/videos/politics/2020/02/14/eric-swalwell-barr-stone-trump-tweets-ac-vpx.cnn', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/200213212126-eric-swalwell-ac-02132020-super-tease.jpg', 'publishedAt': '2020-02-14T03:07:59.9012787Z', 'content': "Chat with us in Facebook Messenger. Find out what's happening in the world as it unfolds."}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': 'Opinion by Frida Ghitis', 'title': 'Trump is learning from the dictators', 'description': 'When the President tweeted his objection to the sentencing recommendation for his Roger Stone, and Attorney General William Barr then quickly reversed the recommendation, they were following along a well-trod path across history, writes Frida Ghitis.', 'url': 'http://us.cnn.com/2020/02/13/opinions/trump-takes-americans-for-fools-ghitis/index.html', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/200213154223-trump-barr-for-ghitis-oped-super-tease.jpg', 'publishedAt': '2020-02-14T02:21:39Z', 'content': 'Frida Ghitis, a former CNN producer and correspondent, is a world affairs columnist. She is a frequent opinion contributor to CNN, a contributing columnist to the Washington Post and a columnist for World Politics Review. Follow her on Twitter @fridaghitis. T… [+6971 chars]'}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': 'Jacqueline Howard, CNN', 'title': "CDC director: Novel coronavirus 'is probably with us beyond this season, beyond this year'", 'description': 'As an outbreak of a novel coronavirus has swept through Hubei province, China, the US Centers for Disease Control and Prevention has been preparing for its worst case scenario -- a widespread outbreak of illnesses in the United States.', 'url': 'http://us.cnn.com/2020/02/13/health/coronavirus-cdc-robert-redfield-gupta-intv/index.html', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/200213175729-01-coronavirus-0213-super-tease.jpg', 'publishedAt': '2020-02-14T01:31:05Z', 'content': '(CNN)As an outbreak of a novel coronavirus has swept through Hubei province, China, the US Centers for Disease Control and Prevention has been preparing for its worst case scenario -- a widespread outbreak of illnessesin the United States.\r\n"Right now we\'re i… [+6416 chars]'}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': 'Rishi Iyengar, CNN Business', 'title': 'Jeff Bezos just dropped $165 million on a new Beverly Hills mansion', 'description': "The world's richest man is on a real estate binge.", 'url': 'http://www.cnn.com/2020/02/13/tech/jeff-bezos-mansion-beverly-hills/index.html', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/200213161811-jeff-bezos-0919-file-super-tease.jpg', 'publishedAt': '2020-02-13T23:57:06Z', 'content': ''}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': 'Marshall Cohen, CNN', 'title': 'Trump contradicts past denials, admits sending Giuliani to Ukraine', 'description': 'Emboldened after his impeachment acquittal, President Donald Trump now openly admits to sending his attorney Rudy Giuliani to Ukraine to find damaging information about his political opponents, even though he strongly denied it during the impeachment inquiry.', 'url': 'http://us.cnn.com/2020/02/13/politics/trump-rudy-giuliani-ukraine-interview/index.html', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/191012134844-01-giuliani-super-tease.jpg', 'publishedAt': '2020-02-13T23:49:15Z', 'content': 'Washington (CNN)Emboldened after his impeachment acquittal, President Donald Trump now openly admits to sending his attorney Rudy Giuliani to Ukraine to find damaging information about his political opponents, even though he strongly denied it during the impe… [+2775 chars]'}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': 'Peter Bergen, CNN National Security Analyst', 'title': 'Trump faces revolt of the generals', 'description': 'We have come to an extraordinary moment in the United States when some of the most senior retired military leaders in the country are publicly taking President Trump to task, writes Peter Bergen.', 'url': 'http://us.cnn.com/2020/02/13/opinions/john-kelly-revolt-generals-bergen/index.html', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/180718104553-01-john-kelly-07-18-2018-super-tease.jpg', 'publishedAt': '2020-02-13T23:45:40Z', 'content': 'Peter Bergen is CNN\'s national security analyst, a vice president at New America and a professor of practice at Arizona State University. His new book is "Trump and His Generals: The Cost of Chaos." The opinions expressed in this commentary are his own. View … [+4236 chars]'}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': 'Analysis by Gloria Borger, CNN Chief Political Analyst', 'title': 'Trump has paralyzed both sides now', 'description': 'As President Donald Trump continues to live out his revenge fantasies against his critics, the reactions are predictable: Democratic outrage and Republican evasion.', 'url': 'http://us.cnn.com/2020/02/13/politics/donald-trump-revenge-fantasies-column/index.html', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/200213163505-trump-0207-super-tease.jpg', 'publishedAt': '2020-02-13T22:01:54Z', 'content': ''}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': '', 'title': "GOP Sen Lisa Murkowski says it appears Trump hasn't learned anything from impeachment - CNN Video", 'description': 'Republican Sen. Lisa Murkowski says there have not been indicators that President Trump has learned any lessons from being impeached.', 'url': 'http://us.cnn.com/videos/politics/2020/02/13/gop-senator-trump-hasnt-learned-from-impeachment-nr-vpx.cnn', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/200131132404-03-murkowski-0129-super-tease.jpg', 'publishedAt': '2020-02-13T21:38:45.789667Z', 'content': "Chat with us in Facebook Messenger. Find out what's happening in the world as it unfolds."}, {'source': {'id': 'cnn', 'name': 'CNN'}, 'author': 'Evan Perez, Manu Raju and Jeremy Herb, CNN', 'title': "Federal prosecutors in Pittsburgh vetting Giuliani's Ukraine allegations", 'description': "The Ukraine allegations that President Donald Trump's personal attorney Rudy Giuliani is providing to the Justice Department are being vetted by investigators in the US Attorney's Office in Pittsburgh, two US law enforcement officials said.", 'url': 'http://us.cnn.com/2020/02/11/politics/pittsburgh-giuliani-ukraine-allegations/index.html', 'urlToImage': 'https://cdn.cnn.com/cnnnext/dam/assets/191206103741-01-rudy-giuliani-file-2018-super-tease.jpg', 'publishedAt': '2020-02-11T20:25:25Z', 'content': "(CNN)The Ukraine allegations that President Donald Trump's personal attorney Rudy Giuliani is providing to the Justice Department are being vetted by investigators in the US Attorney's Office in Pittsburgh, two US law enforcement officials said.\r\nThe official… [+4449 chars]"}]};
 
 var slideTopNewsIndex = 0;
 var timerSetVar;
@@ -190,6 +190,7 @@ var searchNewsResultContent = '';
 var content = '';
 var content_1_5 = '';
 var content_6_15 = '';
+var searchNewsResult = '';
 function searchNews() {
     // TODO: Get user input and pull news
     var keyword, fromDate, toDate, category, source;
@@ -199,48 +200,55 @@ function searchNews() {
     category = document.getElementById("categories").value;
     source = document.getElementById("source").value;
 
-    var req = new XMLHttpRequest();
-    var tmpresult;
-    req.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            tmpresult = JSON.parse(this.responseText);
-            if (tmpresult['articles'].length == 0) {
-                document.getElementById('searchNewsResultArea').innerHTML = "<br><p>No results</p>";
-                document.getElementById("showMoreLessButton").style.display = "none";
-            }
-            else {
-                searchNewsResultContent = '';
-                content_1_5 = generateCollaseNewsBlockHTML(tmpresult, 1, 5)
-                content_6_15 = generateCollaseNewsBlockHTML(tmpresult, 6, 9)
-                showLessNews();
-                document.getElementById("showMoreLessButton").style.display = "inline";
+    if( (new Date(toDate).getTime() < new Date(fromDate).getTime())) {
+        alert("Incorrect time");
+    }
+    else {
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                searchNewsResult = JSON.parse(this.responseText);
+                if (searchNewsResult['status'] == 'error') {
+                    alert(searchNewsResult['message']);
+                }
+                else if (searchNewsResult['articles'].length == 0) {
+                    document.getElementById('searchNewsResultArea').innerHTML = "<br><p>No results</p>";
+                    document.getElementById("showMoreLessButton").style.display = "none";
+                }
+                else {
+                    searchNewsResultContent = '';
+                    content_1_5 = generateCollaseNewsBlockHTML(searchNewsResult, 1, 5)
+                    content_6_15 = generateCollaseNewsBlockHTML(searchNewsResult, 6, 9)
+                    showLessNews();
+                    document.getElementById("showMoreLessButton").style.display = "inline";
+                }
             }
         }
+        req.open('POST', '/search', true);
+        const data = new FormData()
+        data.append('keyword', keyword)
+        data.append('fromDate', fromDate)
+        data.append('toDate', toDate)
+        data.append('category', category)
+        data.append('source', source)
+        req.send(data);
     }
-    req.open('POST', '/search', true);
-    const data = new FormData()
-    data.append('keyword', keyword)
-    data.append('fromDate', fromDate)
-    data.append('toDate', toDate)
-    data.append('category', category)
-    data.append('source', source)
-    req.send(data);
 }
 
 function expandBlock(clicked_id) {
     var index = clicked_id.slice(-1,clicked_id.length)
 
     content = '';
-    content += '<h4>' + result['articles'][index]['title'] + '</h4>';
-    content += '<p><strong>Author: </strong>' + result['articles'][index]['author'] + '</p>';
-    content += '<p><strong>Source: </strong>' + result['articles'][index]['source']['name'] + '</p>';
-    var date = result['articles'][index]['publishedAt']
+    content += '<h4>' + searchNewsResult['articles'][index]['title'] + '</h4>';
+    content += '<p><strong>Author: </strong>' + searchNewsResult['articles'][index]['author'] + '</p>';
+    content += '<p><strong>Source: </strong>' + searchNewsResult['articles'][index]['source']['name'] + '</p>';
+    var date = searchNewsResult['articles'][index]['publishedAt']
     var month = date.substring(5, 7)
     var day = date.substring(8, 10)
     var year = date.substring(0, 4)
     content += '<p><strong>Date: </strong>' + month+'/'+day+'/'+year + '</p>';
-    content += '<p>' + result['articles'][index]['description'] + '</p>';
-    content += '<p><a href="' + result['articles'][index]['url'] + '" target="_blank">See Original Post</a></p>';
+    content += '<p>' + searchNewsResult['articles'][index]['description'] + '</p>';
+    content += '<p><a href="' + searchNewsResult['articles'][index]['url'] + '" target="_blank">See Original Post</a></p>';
 
     document.getElementById(clicked_id).className = "searchNewsResultBlockExpandContent";
     document.getElementById(clicked_id).innerHTML = content;
@@ -251,8 +259,8 @@ function collapseBlock(clicked_id) {
     var index = clicked_id.slice(-1,clicked_id.length)
 
     content = '';
-    content += '<h4 >'+result['articles'][index]['title'] + '</h4>';
-    content += '<p>'+result['articles'][index]['description'] + '</p>';
+    content += '<h4 >'+searchNewsResult['articles'][index]['title'] + '</h4>';
+    content += '<p>'+searchNewsResult['articles'][index]['description'] + '</p>';
 
     document.getElementById('block'+index).className = "searchNewsResultBlockCollapseContent";
     document.getElementById('block'+index).innerHTML = content;
