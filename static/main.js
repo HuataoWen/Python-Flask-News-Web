@@ -14,14 +14,14 @@ function searchNewsPage() {
 }
 */
 
-function run() {
+function showWordCloud() {
     // List of words
-    var myWords = [{word: "Running", size: "2"},
-    {word: "Surfing", size: "20"},
-    {word: "Climbing", size: "50"},
-    {word: "Kiting", size: "30"},
-    {word: "Sailing", size: "20"},
-    {word: "Snowboarding", size: "60"} ]
+    var myWords = [//{word: "Running", size: "20"},
+    //{word: "Surfing", size: "20"},
+    //{word: "Climbing", size: "50"},
+    //{word: "Kiting", size: "30"},
+    {word: "Sailing", size: "5"},
+    {word: "Snowboarding", size: "20"} ]
 
     // set the dimensions and margins of the graph
     var margin = {top: 1, right: 1, bottom: 1, left: 1},
@@ -55,8 +55,8 @@ function run() {
         .selectAll("text")
         .data(words)
         .enter().append("text")
-        .style("font-size", function(d) { return d.size; })
-        .style("fill", "#69b3a2")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("fill", "black")
         .attr("text-anchor", "middle")
         .style("font-family", "Impact")
         .attr("transform", function(d) { return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")"; })
@@ -87,10 +87,10 @@ function switchFrame(param_div_id, top_headlines) {
 
         // Show slide news
         showSlideTopNews();
-        // TODO: Show cloud words
-        run();
-        
 
+        // TODO: Show cloud words
+        showWordCloud();
+        
         // Show news cards
         var i;
         for (i = 1; i < 5; i++) {
