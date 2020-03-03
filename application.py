@@ -1,9 +1,8 @@
-from flask import Flask, redirect, url_for, render_template, request, abort
+from flask import Flask, redirect, url_for, render_template, request, abort, jsonify
 from newsapi import NewsApiClient
 import collections
 
 app = Flask(__name__)
-
 @app.route('/')
 def index():
    newsapi = NewsApiClient(api_key='c2174dfb402940cab6d1829c14225861')
@@ -38,15 +37,60 @@ def index():
       'fox_news_top_headlines':fox_news_top_headlines,\
       'wordFreq':wordFreq}
    #print((top_headlines))
-   #sources = newsapi.get_sources()
-   #print(sources)
-   #return ""
    return render_template('home.html', headlines = headlines)
 
-@app.route('/search')
+@app.route('/search', methods=['GET', 'POST'])
 def searchNews():
-   print("Get user news")
-   return ''
+   """
+   print(request.form['keyword'])
+   print(request.form['fromDate'])
+   print(request.form['toDate'])
+   print(request.form['category'])
+   print(request.form['source'])
+
+   """
+   q = request.form['keyword']
+   sources = '' if request.form['source'] == "all" else request.form['source']
+   from_param = request.form['fromDate']
+   to = request.form['toDate']
+   print(from_param)
+   newsapi = NewsApiClient(api_key='c2174dfb402940cab6d1829c14225861')
+   all_articles = newsapi.get_everything(\
+      q=q,\
+      sources=sources,\
+      from_param=from_param,\
+      to=to,\
+      language='en',\
+      sort_by='publishedAt',\
+      page=5)
+   print(all_articles)
+   return jsonify(all_articles)
+   """
+   try:
+      all_articles = newsapi.get_everything(\
+         q='bitcoin',\
+         sources='cnn',\
+         from_param='2019-12-01',\
+         to='2019-12-12',\
+         language='en',\
+         sort_by='publishedAt',\
+         page=2)
+      print(all_articles)
+   except:
+      pass
+   """
+
+@app.route('/requestSource', methods=['GET', 'POST'])
+def requestSource():
+   newsapi = NewsApiClient(api_key='c2174dfb402940cab6d1829c14225861')
+   sources = newsapi.get_sources(category=request.form['category'], country='us', language='en')
+   #print(sources['sources'])
+   result = []
+   for i in range(len(sources['sources'])):
+      result.append(sources['sources'][i]['name'])
+      #print(sources['sources'][i]['name'])
+
+   return jsonify(result)
 
 if __name__ == '__main__':
    app.run(debug = True)

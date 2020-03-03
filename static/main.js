@@ -88,6 +88,13 @@ function showSlideTopNews() {
 var cnn_top_headlines;
 var fox_news_top_headlines;
 
+function resetSearchDate() {
+    var toDate = new Date();
+    var fromDate = new Date();
+    fromDate.setDate(toDate.getDate() - 7)
+    document.getElementById('from').value = fromDate.getFullYear()+"-"+(("0"+fromDate.getMonth()).slice(-2)) +"-"+ (("0"+(fromDate.getDate()+1)).slice(-2));
+    document.getElementById('to').value = toDate.getFullYear()+"-"+(("0"+toDate.getMonth()).slice(-2)) +"-"+ (("0"+(toDate.getDate()+1)).slice(-2));
+}
 function updateResult(data) {
     result = data['top_headlines'];
     cnn_top_headlines = data['cnn_top_headlines'];
@@ -127,6 +134,7 @@ function switchFrame(param_div_id) {
     }
     else {
         clearTimeout(timerSetVar);
+        resetSearchDate();
     }
 }
 
@@ -154,6 +162,30 @@ function generateCollaseNewsBlockHTML(data, start, end) {
     return content;
 }
 
+function getSource() {
+    var req = new XMLHttpRequest();
+    req.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var newSource = JSON.parse(this.responseText);
+            oldSource = document.getElementById("source");
+            var i;
+            for (i = oldSource.options.length - 1; i > 0; i--) {
+                oldSource.remove(i);
+            }
+            for (i = 0; i < newSource.length; i++)
+            {
+                var option = document.createElement("option"); 
+                option.text = newSource[i];
+                oldSource.add(option, oldSource[1]);
+            }
+        }
+    }
+    req.open('POST', '/requestSource', true);
+    const data = new FormData()
+    data.append('category', document.getElementById("categories").value)
+    req.send(data);
+}
+
 var searchNewsResultContent = '';
 var content = '';
 var content_1_5 = '';
@@ -167,12 +199,32 @@ function searchNews() {
     category = document.getElementById("categories").value;
     source = document.getElementById("source").value;
 
-    // Parse the searched form
-    searchNewsResultContent = '';
-    content_1_5 = generateCollaseNewsBlockHTML(result, 1, 5)
-    content_6_15 = generateCollaseNewsBlockHTML(result, 6, 9)
-    showLessNews();
-    document.getElementById("showMoreLessButton").style.display = "inline";
+    var req = new XMLHttpRequest();
+    var tmpresult;
+    req.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            tmpresult = JSON.parse(this.responseText);
+            if (tmpresult['articles'].length == 0) {
+                document.getElementById('searchNewsResultArea').innerHTML = "<br><p>No results</p>";
+                document.getElementById("showMoreLessButton").style.display = "none";
+            }
+            else {
+                searchNewsResultContent = '';
+                content_1_5 = generateCollaseNewsBlockHTML(tmpresult, 1, 5)
+                content_6_15 = generateCollaseNewsBlockHTML(tmpresult, 6, 9)
+                showLessNews();
+                document.getElementById("showMoreLessButton").style.display = "inline";
+            }
+        }
+    }
+    req.open('POST', '/search', true);
+    const data = new FormData()
+    data.append('keyword', keyword)
+    data.append('fromDate', fromDate)
+    data.append('toDate', toDate)
+    data.append('category', category)
+    data.append('source', source)
+    req.send(data);
 }
 
 function expandBlock(clicked_id) {
@@ -209,6 +261,7 @@ function collapseBlock(clicked_id) {
 
 function clearFormNews() {
     document.getElementById("searchForm").reset();
+    resetSearchDate();
     document.getElementById('searchNewsResultArea').textContent = '';
     document.getElementById("showMoreLessButton").style.display = "none";
 }

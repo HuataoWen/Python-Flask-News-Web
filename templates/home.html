@@ -14,7 +14,7 @@
       </script>
     </head>
     
-    <body onload="switchFrame('newsFrame')">
+    <body onload="switchFrame('searchFrame')">
         <div class="wrapper">
             <div class="menu">
                 <a id="topNewsPage" href="#" class="active" onclick = "switchFrame('newsFrame')">Google News</a>
@@ -86,7 +86,7 @@
                     <form id="searchForm" action="javascript:searchNews()">
                         <div>
                             <label class="required-field">Keyword</label>
-                            <input type="text" id="keyword" name="keyword">
+                            <input type="text" id="keyword" name="keyword" value="virus">
                             <label class="required-field">From</label>
                             <input type="date" id="from" name="from">
                             <span></span>
@@ -96,7 +96,7 @@
                         <br>
                         <div>
                             <label>Category</label>
-                            <select id="categories">
+                            <select id="categories" onchange="getSource()">
                               <option value="all">all</option>
                               <option value="business">business</option>
                               <option value="entertainment">entertainment</option>
@@ -110,11 +110,6 @@
                             <label>Source</label>
                             <select id="source">
                               <option value="all">all</option>
-                              <option value="Bloomberg">Bloomberg</option>
-                              <option value="Business Insider">Business Insider</option>
-                              <option value="CNBC">CNBC</option>
-                              <option value="Fortune">Fortune</option>
-                              <option value="The Wall Street Journal">The Wall Street Journal</option>
                             </select>
                         </div>
                         <br>
