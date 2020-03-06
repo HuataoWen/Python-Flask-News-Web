@@ -6,11 +6,8 @@
       <script src = "{{ url_for('static', filename = 'd3.v4.js') }}"></script>
       <script src = "{{ url_for('static', filename = 'd3.layout.cloud.js') }}"></script>
       <script type = "text/javascript" src = "{{ url_for('static', filename = 'main.js') }}"></script>
-      <script>
-          var someJavaScriptVar;
-          someJavaScriptVar = {{ headlines|tojson }};
-          //alert(someJavaScriptVar);
-          updateResult(someJavaScriptVar);
+      <script type="text/javascript">
+          updateResult({{ headlines|tojson }});
       </script>
     </head>
     
@@ -42,7 +39,7 @@
 
                 <div class="newsArea">
                     <h2>CNN</h2>
-                    <hr>
+                    <hr style="border: 1px dashed black;" />
                     <div class="newsBlocks">
                         <a href="#" id="cnnNews1_url" target="_blank" class="newsBlock">
                             <div id="cnnNews1"></div>
@@ -61,7 +58,7 @@
 
                 <div class="newsArea">
                     <h2>Fox News</h2>
-                    <hr>
+                    <hr style="border: 1px dashed black;" />
                     <div class="newsBlocks">
                         <a href="#" id="foxNewsNews1_url" target="_blank" class="newsBlock">
                             <div id="foxNewsNews1"></div>
@@ -86,12 +83,12 @@
                     <form id="searchForm" action="javascript:searchNews()">
                         <div>
                             <label class="required-field">Keyword</label>
-                            <input type="text" id="keyword" name="keyword">
+                            <input type="text" id="keyword" name="keyword" required>
                             <label class="required-field">From</label>
-                            <input type="date" id="from" name="from">
+                            <input type="date" id="from" name="from" required>
                             <span></span>
                             <label class="required-field">To</label>
-                            <input type="date" id="to" name="to">
+                            <input type="date" id="to" name="to" required>
                         </div>
                         <br>
                         <div>
