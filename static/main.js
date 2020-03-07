@@ -209,10 +209,13 @@ function searchNews() {
                     searchNewsResultContent = '';
 
                     var tmpLength = searchNewsResult['articles'].length;
-                    content_1_5 = generateCollaseNewsBlockHTML(searchNewsResult, 1, tmpLength)
 
-                    if (tmpLength > 5) {
-                        content_6_15 = generateCollaseNewsBlockHTML(searchNewsResult, 6, tmpLength)
+                    if (tmpLength <= 5) {
+                        content_1_5 = generateCollaseNewsBlockHTML(searchNewsResult, 1, tmpLength)
+                    }
+                    else {
+                        content_1_5 = generateCollaseNewsBlockHTML(searchNewsResult, 1, 5)
+                        content_6_15 = generateCollaseNewsBlockHTML(searchNewsResult, 6, 15)
                         document.getElementById("showMoreLessButton").style.display = "inline";
                     }
 
