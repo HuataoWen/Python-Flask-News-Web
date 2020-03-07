@@ -1,7 +1,7 @@
 from flask import Flask, redirect, url_for, render_template, request, abort, jsonify
 from newsapi import NewsApiClient
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 def newsFilter(data):
    tmp = {}
@@ -21,7 +21,7 @@ def newsFilter(data):
             tmp[k].append(item)
    return tmp
 
-@app.route('/')
+@application.route('/')
 def index():
    # Init
    newsapi = NewsApiClient(api_key='c2174dfb402940cab6d1829c14225861')
@@ -66,7 +66,7 @@ def index():
 
    return render_template('home.html', headlines = headlines)
 
-@app.route('/search', methods=['GET', 'POST'])
+@application.route('/search', methods=['GET', 'POST'])
 def searchNews():
    q = request.form['keyword']
    sources = '' if request.form['source'] == "all" else request.form['source']
@@ -86,6 +86,7 @@ def searchNews():
          page=5)
       #print(all_articles)
       all_articles = newsFilter(all_articles)
+      #print(all_articles)
       return jsonify(all_articles)
    except Exception as e:
       #print(str(e))
@@ -107,7 +108,7 @@ def searchNews():
          error[t[0]] = t[1]
       return jsonify(error)
 
-@app.route('/requestSource', methods=['GET', 'POST'])
+@application.route('/requestSource', methods=['GET', 'POST'])
 def requestSource():
    newsapi = NewsApiClient(api_key='c2174dfb402940cab6d1829c14225861')
 
@@ -122,9 +123,10 @@ def requestSource():
 
    result = []
    for i in range(len(sources['sources'])):
-      result.append(sources['sources'][i]['name'])
+      result.append(sources['sources'][i]['id'])
 
    return jsonify(result)
 
-if __name__ == '__main__':
-   app.run(debug = True)
+if __name__ == "__main__":
+   application.debug = True
+   application.run()

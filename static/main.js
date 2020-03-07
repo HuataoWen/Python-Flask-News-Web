@@ -131,12 +131,12 @@ function generateCollaseNewsBlockHTML(data, start, end) {
     for (i = start; i <= end; i++) {
         content += '<div class="searchNewsResultBlock">';
         content += '<div class= "searchNewsResultBlockImg">';
-        content += '<img src="' + data['articles'][i]['urlToImage'] + '" alt="Missing Img">';
+        content += '<img src="' + data['articles'][i - 1]['urlToImage'] + '" alt="Missing Img">';
         content += '</div>';
 
         content += '<div id="block'+i+'" class= "searchNewsResultBlockCollapseContent" onclick="expandBlock(this.id)">';
-        content += '<h4 >'+data['articles'][i]['title'] + '</h4>';
-        content += '<p>'+data['articles'][i]['description'] + '</p>';
+        content += '<h4 >'+data['articles'][i - 1]['title'] + '</h4>';
+        content += '<p>'+data['articles'][i - 1]['description'] + '</p>';
         content += '</div>';
 
         content += '<div class= "searchNewsResultBlockClose">';
@@ -197,6 +197,7 @@ function searchNews() {
         req.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 searchNewsResult = JSON.parse(this.responseText);
+                //alert(searchNewsResult['articles'].length)
                 if (searchNewsResult['status'] == 'error') {
                     alert(searchNewsResult['message']);
                 }
@@ -206,10 +207,16 @@ function searchNews() {
                 }
                 else {
                     searchNewsResultContent = '';
-                    content_1_5 = generateCollaseNewsBlockHTML(searchNewsResult, 1, 5)
-                    content_6_15 = generateCollaseNewsBlockHTML(searchNewsResult, 6, 15)
+
+                    var tmpLength = searchNewsResult['articles'].length;
+                    content_1_5 = generateCollaseNewsBlockHTML(searchNewsResult, 1, tmpLength)
+
+                    if (tmpLength > 5) {
+                        content_6_15 = generateCollaseNewsBlockHTML(searchNewsResult, 6, tmpLength)
+                        document.getElementById("showMoreLessButton").style.display = "inline";
+                    }
+
                     showLessNews();
-                    document.getElementById("showMoreLessButton").style.display = "inline";
                 }
             }
         }
