@@ -10,8 +10,15 @@ function showWordCloud() {
     //{word: "Sailing", size: "15"},
     //{word: "Snowboarding", size: "20"} ]
     
+    var tmp;
+
     for (var i = 0; i < 30; i++) {
-        myWords.push({word: wordFreq[i][0], size: i});
+        tmp = i - 10;
+        if (tmp < 7) {
+            tmp = 7;
+        }
+        myWords.push({word: wordFreq[i][0].replace(/[^a-zA-Z0-9]+/g, ""), size: tmp});
+        console.log(i);
     }
 
     // set the dimensions and margins of the graph
@@ -81,15 +88,15 @@ function resetSearchDate() {
     document.getElementById('from').value = fromDate.getFullYear()+"-"+(("0"+(fromDate.getMonth()+1)).slice(-2)) +"-"+ (("0"+fromDate.getDate()).slice(-2));
     document.getElementById('to').value = toDate.getFullYear()+"-"+(("0"+(toDate.getMonth()+1)).slice(-2)) +"-"+ (("0"+toDate.getDate()).slice(-2));
 }
+
 function updateResult(data) {
     result = data['top_headlines'];
     cnn_top_headlines = data['cnn_top_headlines'];
     fox_news_top_headlines = data['fox_news_top_headlines'];
     wordFreq = data['wordFreq'];
 }
+
 function switchFrame(param_div_id) {
-    
-    
     if (param_div_id == "newsFrame") {
         // TODO: Pull top news
         var req = new XMLHttpRequest();
