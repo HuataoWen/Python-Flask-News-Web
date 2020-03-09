@@ -1,4 +1,5 @@
 
+
 var wordFreq;
 function showWordCloud() {
     // List of words
@@ -55,6 +56,7 @@ function showWordCloud() {
     layout.start();
 }
 
+var result;
 var slideTopNewsIndex = 0;
 var timerSetVar;
 function showSlideTopNews() {
@@ -86,37 +88,48 @@ function updateResult(data) {
     wordFreq = data['wordFreq'];
 }
 function switchFrame(param_div_id) {
-    document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
+    
     
     if (param_div_id == "newsFrame") {
         // TODO: Pull top news
-        //alert(top_headlines);
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var newSource = JSON.parse(this.responseText);
+                updateResult(newSource);
 
-        // Show slide news
-        showSlideTopNews();
+                document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
 
-        // TODO: Show cloud words
-        showWordCloud();
-        
-        // Show news cards
-        var i;
-        for (i = 1; i < 5; i++) {
-            var content = '<img src="' + cnn_top_headlines['articles'][i]['urlToImage'] + '" alt="Missing Img">';
-            content += '<h1>' + cnn_top_headlines['articles'][i]['title'] + '</h1>';
-            content += '<p>' + cnn_top_headlines['articles'][i]['description'] + '</p>';
-            document.getElementById('cnnNews'+i).innerHTML = content;
-            document.getElementById('cnnNews'+i+'_url').href=cnn_top_headlines['articles'][i]['url'];
+                // Show slide news
+                showSlideTopNews();
+
+                // TODO: Show cloud words
+                showWordCloud();
+
+                // Show news cards
+                var i;
+                for (i = 1; i < 5; i++) {
+                    var content = '<img src="' + cnn_top_headlines['articles'][i]['urlToImage'] + '" alt="Missing Img">';
+                    content += '<h1>' + cnn_top_headlines['articles'][i]['title'] + '</h1>';
+                    content += '<p>' + cnn_top_headlines['articles'][i]['description'] + '</p>';
+                    document.getElementById('cnnNews'+i).innerHTML = content;
+                    document.getElementById('cnnNews'+i+'_url').href=cnn_top_headlines['articles'][i]['url'];
+                }
+            
+                for (i = 1; i < 5; i++) {
+                    var content = '<img src="' + fox_news_top_headlines['articles'][i]['urlToImage'] + '" alt="Missing Img">';
+                    content += '<h1>' + fox_news_top_headlines['articles'][i]['title'] + '</h1>';
+                    content += '<p>' + fox_news_top_headlines['articles'][i]['description'] + '</p>';
+                    document.getElementById('foxNewsNews'+i).innerHTML = content;
+                    document.getElementById('foxNewsNews'+i+'_url').href=fox_news_top_headlines['articles'][i]['url'];
+                }
+            }
         }
-
-        for (i = 1; i < 5; i++) {
-            var content = '<img src="' + fox_news_top_headlines['articles'][i]['urlToImage'] + '" alt="Missing Img">';
-            content += '<h1>' + fox_news_top_headlines['articles'][i]['title'] + '</h1>';
-            content += '<p>' + fox_news_top_headlines['articles'][i]['description'] + '</p>';
-            document.getElementById('foxNewsNews'+i).innerHTML = content;
-            document.getElementById('foxNewsNews'+i+'_url').href=fox_news_top_headlines['articles'][i]['url'];
-        }
+        req.open('GET', '/home', true);
+        req.send();
     }
     else {
+        document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
         getSource();
         clearTimeout(timerSetVar);
         resetSearchDate();
@@ -170,8 +183,8 @@ function getSource() {
         }
     }
     req.open('POST', '/requestSource', true);
-    const data = new FormData()
-    data.append('category', document.getElementById("categories").value)
+    const data = new FormData();
+    data.append('category', document.getElementById("categories").value);
     req.send(data);
 }
 

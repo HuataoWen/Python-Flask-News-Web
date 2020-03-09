@@ -3,12 +3,9 @@
     <head>
       <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
       <link rel="stylesheet" type="text/css" href="/static/style.css"/>
-      <script src = "{{ url_for('static', filename = 'd3.v4.js') }}"></script>
-      <script src = "{{ url_for('static', filename = 'd3.layout.cloud.js') }}"></script>
-      <script type = "text/javascript" src = "{{ url_for('static', filename = 'main.js') }}"></script>
-      <script type="text/javascript">
-          updateResult({{ headlines|tojson }});
-      </script>
+      <script src = "/static/main.js"></script>
+      <script src = "/static/d3.v4.js"></script>
+      <script src = "/static/d3.layout.cloud.js"></script>
     </head>
     
     <body onload="switchFrame('newsFrame')">

@@ -1,7 +1,8 @@
 from flask import Flask, redirect, url_for, render_template, request, abort, jsonify
 from newsapi import NewsApiClient
+import json
 
-application = Flask(__name__)
+application = Flask(__name__, static_url_path='/static')
 
 def newsFilter(data):
    tmp = {}
@@ -23,6 +24,12 @@ def newsFilter(data):
 
 @application.route('/')
 def index():
+   #root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates")
+   #return send_from_directory(root, "home.html")#homepage.html在html文件夹下
+   return application.send_static_file('home.html')#render_template('home.html')
+
+@application.route('/home', methods=['GET', 'POST'])
+def home():
    # Init
    newsapi = NewsApiClient(api_key='c2174dfb402940cab6d1829c14225861')
 
@@ -63,8 +70,7 @@ def index():
       'cnn_top_headlines': cnn_top_headlines,\
       'fox_news_top_headlines': fox_news_top_headlines,\
       'wordFreq': wordFreq}
-
-   return render_template('home.html', headlines = headlines)
+   return json.dumps(headlines)
 
 @application.route('/search', methods=['GET', 'POST'])
 def searchNews():
@@ -87,7 +93,7 @@ def searchNews():
       #print(all_articles)
       all_articles = newsFilter(all_articles)
       #print(all_articles)
-      return jsonify(all_articles)
+      return json.dumps(all_articles)
    except Exception as e:
       #print(str(e))
       errorStr = str(e).strip("{'").strip("'}").strip('"}').split("', '")
@@ -106,15 +112,16 @@ def searchNews():
          #print(t)
          #print("t----------------------")
          error[t[0]] = t[1]
-      return jsonify(error)
+         
+      return json.dumps(error)
 
 @application.route('/requestSource', methods=['GET', 'POST'])
 def requestSource():
    newsapi = NewsApiClient(api_key='c2174dfb402940cab6d1829c14225861')
 
-   #print("--------------------------")
-   #print(request.form['category'])
-   #print("--------------------------")
+   print("--------------------------")
+   print(request.form['category'])
+   print("--------------------------")
 
    if request.form['category'] == "all":
       sources = newsapi.get_sources(country='us', language='en')
@@ -125,7 +132,7 @@ def requestSource():
    for i in range(len(sources['sources'])):
       result.append(sources['sources'][i]['id'])
 
-   return jsonify(result)
+   return json.dumps(result)
 
 if __name__ == "__main__":
    application.debug = True
