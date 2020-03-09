@@ -13,12 +13,11 @@ function showWordCloud() {
     var tmp;
 
     for (var i = 0; i < 30; i++) {
-        tmp = i - 10;
+        tmp = 22 - i;
         if (tmp < 7) {
             tmp = 7;
         }
         myWords.push({word: wordFreq[i][0].replace(/[^a-zA-Z0-9]+/g, ""), size: tmp});
-        console.log(i);
     }
 
     // set the dimensions and margins of the graph

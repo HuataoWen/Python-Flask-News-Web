@@ -1,6 +1,6 @@
 from flask import Flask, redirect, url_for, render_template, request, abort, jsonify
 from newsapi import NewsApiClient
-import json
+import json, re
 
 application = Flask(__name__, static_url_path='/static')
 
@@ -26,7 +26,7 @@ def newsFilter(data):
 def index():
    #root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates")
    #return send_from_directory(root, "home.html")#homepage.html在html文件夹下
-   return application.send_static_file('home.html')#render_template('home.html')
+   return application.send_static_file('home.html')
 
 @application.route('/home', methods=['GET', 'POST'])
 def home():
@@ -41,19 +41,20 @@ def home():
    tmp = ''
    for i in range(len(top_headlines['articles'])):
       tmp += top_headlines['articles'][i]['title']
-   tmp = tmp.split()
+   tmp = re.sub('[\(\)\{\}<>]', '', tmp).split()
+   #print(tmp)
 
    # Remove stopwords
    file1 = open("stopwords_en.txt", "r")
    stopwords_en = file1.read().splitlines()
    file1.close()
    for word in tmp:
-      if word not in stopwords_en:
+      if word.lower() not in stopwords_en:
          if word in wordFreq:
             wordFreq[word] += 1
          else:
             wordFreq[word] = 1
-   wordFreq = sorted(wordFreq.items(), key=lambda kv: kv[1], reverse=True)
+   wordFreq = sorted(wordFreq.items(), key=lambda kv: kv[1], reverse=False)
    top_headlines = newsFilter(top_headlines)
    
    # /v2/top-headlines
@@ -119,9 +120,9 @@ def searchNews():
 def requestSource():
    newsapi = NewsApiClient(api_key='c2174dfb402940cab6d1829c14225861')
 
-   print("--------------------------")
-   print(request.form['category'])
-   print("--------------------------")
+   #print("--------------------------")
+   #print(request.form['category'])
+   #print("--------------------------")
 
    if request.form['category'] == "all":
       sources = newsapi.get_sources(country='us', language='en')
