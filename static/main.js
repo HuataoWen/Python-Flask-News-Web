@@ -234,7 +234,13 @@ function searchNews() {
                     }
                     else {
                         content_1_5 = generateCollaseNewsBlockHTML(searchNewsResult, 1, 5)
-                        content_6_15 = generateCollaseNewsBlockHTML(searchNewsResult, 6, 15)
+                        if (tmpLength < 15) {
+                            content_6_15 = generateCollaseNewsBlockHTML(searchNewsResult, 6, tmpLength)
+                        }
+                        else {
+                            content_6_15 = generateCollaseNewsBlockHTML(searchNewsResult, 6, 15)
+                        }
+                        
                         document.getElementById("showMoreLessButton").style.display = "inline";
                     }
 

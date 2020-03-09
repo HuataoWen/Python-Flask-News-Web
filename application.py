@@ -93,7 +93,7 @@ def searchNews():
          page=5)
       #print(all_articles)
       all_articles = newsFilter(all_articles)
-      #print(all_articles)
+      print(all_articles)
       return json.dumps(all_articles)
    except Exception as e:
       #print(str(e))
