@@ -11,13 +11,13 @@ def newsFilter(data):
       if k == 'articles':
          tmp[k] = []
          for item in data[k]:
-            if item['author'] == None or\
-               item['source'] == None or\
-               item['description'] == None or\
-               item['title'] == None or\
-               item['url'] == None or\
-               item['urlToImage'] == None or\
-               item['publishedAt'] == None:
+            if item['author'] == None or item['author'] == '' or\
+               item['source'] == None or item['source'] == '' or\
+               item['description'] == None or item['description'] == '' or\
+               item['title'] == None or item['title'] == '' or\
+               item['url'] == None or item['url'] == '' or\
+               item['urlToImage'] == None or item['urlToImage'] == '' or\
+               item['publishedAt'] == None or item['publishedAt'] == '':
                continue
             tmp[k].append(item)
    return tmp
@@ -93,7 +93,7 @@ def searchNews():
          page=5)
       #print(all_articles)
       all_articles = newsFilter(all_articles)
-      print(all_articles)
+      #print(all_articles)
       return json.dumps(all_articles)
    except Exception as e:
       #print(str(e))
