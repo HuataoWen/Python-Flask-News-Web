@@ -78,8 +78,8 @@ function resetSearchDate() {
     var toDate = new Date();
     var fromDate = new Date();
     fromDate.setDate(toDate.getDate() - 7)
-    document.getElementById('from').value = fromDate.getFullYear()+"-"+(("0"+fromDate.getMonth()).slice(-2)) +"-"+ (("0"+(fromDate.getDate()+1)).slice(-2));
-    document.getElementById('to').value = toDate.getFullYear()+"-"+(("0"+toDate.getMonth()).slice(-2)) +"-"+ (("0"+(toDate.getDate()+1)).slice(-2));
+    document.getElementById('from').value = fromDate.getFullYear()+"-"+(("0"+(fromDate.getMonth()+1)).slice(-2)) +"-"+ (("0"+fromDate.getDate()).slice(-2));
+    document.getElementById('to').value = toDate.getFullYear()+"-"+(("0"+(toDate.getMonth()+1)).slice(-2)) +"-"+ (("0"+toDate.getDate()).slice(-2));
 }
 function updateResult(data) {
     result = data['top_headlines'];
