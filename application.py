@@ -54,7 +54,7 @@ def home():
             wordFreq[word] += 1
          else:
             wordFreq[word] = 1
-   wordFreq = sorted(wordFreq.items(), key=lambda kv: kv[1], reverse=False)
+   wordFreq = sorted(wordFreq.items(), key=lambda kv: kv[1], reverse=True)
    top_headlines = newsFilter(top_headlines)
    
    # /v2/top-headlines
