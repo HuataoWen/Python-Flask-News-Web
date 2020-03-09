@@ -73,7 +73,7 @@ function showSlideTopNews() {
     document.getElementById("slideNewsTitle").innerHTML = result['articles'][slideTopNewsIndex]['title'];
     document.getElementById("slideNewsDescription").innerHTML = result['articles'][slideTopNewsIndex]['description'];
     
-    timerSetVar = setTimeout(showSlideTopNews, 2000); // Change image every 2 seconds
+    timerSetVar = setTimeout(showSlideTopNews, 4000); // Change image every 2 seconds
     slideTopNewsIndex++;
 }
 
