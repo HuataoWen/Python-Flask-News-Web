@@ -147,15 +147,15 @@ function switchFrame(param_div_id) {
 function generateCollaseNewsBlockHTML(data, start, end) {
     var content = ""
     var i = 0;
-    for (i = start; i <= end; i++) {
+    for (i = start; i < end; i++) {
         content += '<div class="searchNewsResultBlock">';
         content += '<div class= "searchNewsResultBlockImg">';
-        content += '<img src="' + data['articles'][i - 1]['urlToImage'] + '" alt="Missing Img">';
+        content += '<img src="' + data['articles'][i]['urlToImage'] + '" alt="Missing Img">';
         content += '</div>';
 
         content += '<div id="block'+i+'" class= "searchNewsResultBlockCollapseContent" onclick="expandBlock(this.id)">';
-        content += '<h4 >'+data['articles'][i - 1]['title'] + '</h4>';
-        content += '<p>'+data['articles'][i - 1]['description'] + '</p>';
+        content += '<h4 >'+data['articles'][i]['title'] + '</h4>';
+        content += '<p>'+data['articles'][i]['description'] + '</p>';
         content += '</div>';
 
         content += '<div class= "searchNewsResultBlockClose">';
@@ -233,12 +233,13 @@ function searchNews() {
                         content_1_5 = generateCollaseNewsBlockHTML(searchNewsResult, 1, tmpLength)
                     }
                     else {
-                        content_1_5 = generateCollaseNewsBlockHTML(searchNewsResult, 1, 5)
+                        content_1_5 = generateCollaseNewsBlockHTML(searchNewsResult, 0, 5)
+                        
                         if (tmpLength < 15) {
-                            content_6_15 = generateCollaseNewsBlockHTML(searchNewsResult, 6, tmpLength)
+                            content_6_15 = generateCollaseNewsBlockHTML(searchNewsResult, 5, tmpLength)
                         }
                         else {
-                            content_6_15 = generateCollaseNewsBlockHTML(searchNewsResult, 6, 15)
+                            content_6_15 = generateCollaseNewsBlockHTML(searchNewsResult, 5, 15)
                         }
                         
                         document.getElementById("showMoreLessButton").style.display = "inline";
